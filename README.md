@@ -1,6 +1,12 @@
 # Protobuf test
 
-The goal is to load [./src/proto/hello.js](./src/proto/hello.js) in this app, encode any message, and print the `bytes`
+## Demo
+
+todo
+
+## Goal
+
+Load [./src/proto/hello.js](./src/proto/hello.js) in this app, encode any message, and print the `bytes`
 
 the trick is, use this svelte setup (rollup) and configure it in some way to load a protobuf library that can encode/decode.
 
@@ -9,22 +15,10 @@ There are two major libraries, [official google (protoc)](https://developers.goo
 use any library that can encode/decode protobuf syntax version 3, it doesn't have to be the ones listed
 
 
-## Get started
+## Proof of Concept
 
-Install the dependencies...
-
-```bash
-cd svelte-app
-npm install
-```
-
-...then start [Rollup](https://rollupjs.org):
-
-```bash
+```sh
+npm i
+npm run compile-proto
 npm run dev
 ```
-
-Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
-
-By default, the server will only respond to requests from localhost. To allow connections from other computers, edit the `sirv` commands in package.json to include the option `--host 0.0.0.0`.
-
