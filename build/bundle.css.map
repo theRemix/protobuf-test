@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "../../App.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\n  import { writable } from 'svelte/store'\n  import proto from './proto/hello'\n\n  let helloBytes = []\n  const name = writable('Svelte');\n  const greeting = writable('Hi');\n\n  name.subscribe(name => {\n    const msg = new proto.Hello({\n      name,\n      greeting: $greeting,\n    })\n    helloBytes = proto.Hello.encode(msg).finish();\n\t});\n\n  greeting.subscribe(greeting => {\n    const msg = new proto.Hello({\n      name: $name,\n      greeting,\n    })\n    helloBytes = proto.Hello.encode(msg).finish();\n\t});\n\n</script>\n\n<svelte:head>\n  <script src=\"//cdn.rawgit.com/dcodeIO/protobuf.js/6.8.8/dist/protobuf.min.js\"></script>\n</svelte:head>\n\n<main>\n  <h1>Encoding Hello.proto</h1>\n<pre><code>syntax = \"proto3\";\n\nmessage Hello &lbrace;\n  string name = 1;\n  string greeting = 2;\n&rbrace;</code></pre>\n  <input bind:value={$name} placeholder=\"name\" />\n  <input bind:value={$greeting} placeholder=\"greeting\" />\n  <p>Encoded ( name: '{$name}', greeting: '{$greeting}')</p>\n\t<p>Bytes: { helloBytes }</p>\n</main>\n\n<style>\n\tmain {\n\t\ttext-align: center;\n\t\tpadding: 1em;\n\t\tmax-width: 240px;\n\t\tmargin: 0 auto;\n\t}\n\n  pre, code{\n\t\ttext-align: left;\n    margin: auto;\n    margin-bottom: 15px;\n    width: 200px;\n  }\n\n\th1 {\n\t\tcolor: #ff3e00;\n\t\ttext-transform: uppercase;\n\t\tfont-size: 4em;\n\t\tfont-weight: 100;\n\t}\n\n\t@media (min-width: 640px) {\n\t\tmain {\n\t\t\tmax-width: none;\n\t\t}\n\t}\n</style>\n"
+  ],
+  "names": [],
+  "mappings": "AA6CC,IAAI,eAAC,CAAC,AACL,UAAU,CAAE,MAAM,CAClB,OAAO,CAAE,GAAG,CACZ,SAAS,CAAE,KAAK,CAChB,MAAM,CAAE,CAAC,CAAC,IAAI,AACf,CAAC,AAEA,kBAAG,CAAE,mBAAI,CAAC,AACV,UAAU,CAAE,IAAI,CACd,MAAM,CAAE,IAAI,CACZ,aAAa,CAAE,IAAI,CACnB,KAAK,CAAE,KAAK,AACd,CAAC,AAEF,EAAE,eAAC,CAAC,AACH,KAAK,CAAE,OAAO,CACd,cAAc,CAAE,SAAS,CACzB,SAAS,CAAE,GAAG,CACd,WAAW,CAAE,GAAG,AACjB,CAAC,AAED,MAAM,AAAC,YAAY,KAAK,CAAC,AAAC,CAAC,AAC1B,IAAI,eAAC,CAAC,AACL,SAAS,CAAE,IAAI,AAChB,CAAC,AACF,CAAC"
+}
