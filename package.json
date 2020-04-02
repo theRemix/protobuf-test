@@ -5,6 +5,7 @@
     "compile-proto": "npx pbjs -t static-module -p src/proto/ -o src/proto/hello.js hello.proto",
     "build": "rollup -c",
     "dev": "rollup -c -w",
+    "deploy": "npx gh-pages -d public",
     "start": "sirv public"
   },
   "devDependencies": {
