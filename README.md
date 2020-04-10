@@ -4,15 +4,13 @@
 
 [https://theremix.github.io/protobuf-test](https://theremix.github.io/protobuf-test)
 
-## Goal
+## POC
 
-Load [./src/proto/hello.js](./src/proto/hello.js) in this app, encode any message, and print the `bytes`
+Loads [./src/proto/hello.js](./src/proto/hello.js), encode a message and print as bytes
 
-the trick is, use this svelte setup (rollup) and configure it in some way to load a protobuf library that can encode/decode.
+Rollup builds stand-alone protobuf definition modules compiled with [protobufjs (pbjs)](https://www.npmjs.com/package/protobufjs)
 
-There are two major libraries, [official google (protoc)](https://developers.google.com/protocol-buffers/docs/reference/javascript-generated) and [protobufjs (pbjs)](https://www.npmjs.com/package/protobufjs)
-
-use any library that can encode/decode protobuf syntax version 3, it doesn't have to be the ones listed
+I found problems using the [official google (protoc)](https://developers.google.com/protocol-buffers/docs/reference/javascript-generated) with rollup.
 
 
 ## Proof of Concept
